@@ -1,0 +1,26 @@
+{
+  "name": "vidsift",
+  "version": "1.0.0",
+  "description": "Search for YouTube Videos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bayprogrammer/vidsift.git"
+  },
+  "keywords": [
+    "youtube",
+    "video",
+    "search",
+    "webcomponents",
+    "lit"
+  ],
+  "author": "Zeb DeOs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bayprogrammer/vidsift/issues"
+  },
+  "homepage": "https://github.com/bayprogrammer/vidsift#readme"
+}
