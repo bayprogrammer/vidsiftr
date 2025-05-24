@@ -1,5 +1,5 @@
 {
-  "name": "vidsift",
+  "name": "vidsiftr",
   "version": "1.0.0",
   "description": "Search for YouTube Videos",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bayprogrammer/vidsift.git"
+    "url": "git+https://github.com/bayprogrammer/vidsiftr.git"
   },
   "keywords": [
     "youtube",
@@ -20,7 +20,7 @@
   "author": "Zeb DeOs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bayprogrammer/vidsift/issues"
+    "url": "https://github.com/bayprogrammer/vidsiftr/issues"
   },
-  "homepage": "https://github.com/bayprogrammer/vidsift#readme"
+  "homepage": "https://github.com/bayprogrammer/vidsiftr#readme"
 }
