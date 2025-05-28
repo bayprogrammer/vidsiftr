@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bayprogrammer/vidsiftr/issues"
   },
-  "homepage": "https://github.com/bayprogrammer/vidsiftr#readme"
+  "homepage": "https://github.com/bayprogrammer/vidsiftr#readme",
+  "devDependencies": {
+    "@mojojs/core": "^1.26.10"
+  }
 }
