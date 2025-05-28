@@ -4,6 +4,7 @@
   "description": "Search for YouTube Videos",
   "main": "index.js",
   "scripts": {
+    "serve": "node app.js server -l http://127.0.0.1:8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +26,6 @@
   "homepage": "https://github.com/bayprogrammer/vidsiftr#readme",
   "devDependencies": {
     "@mojojs/core": "^1.26.10"
-  }
+  },
+  "type": "module"
 }
