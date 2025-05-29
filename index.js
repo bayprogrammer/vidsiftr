@@ -1,4 +1,5 @@
 import { Greeter } from 'greeter'
+import page from 'page'
 
 const defaultGreeter = new Greeter();
 defaultGreeter.greet()
