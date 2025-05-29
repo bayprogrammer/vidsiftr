@@ -17,6 +17,11 @@ function flipTo(pageEle) {
   })
 }
 
+function processSearch(query) {
+  // TODO(zmd): submit request to youtube data api for real
+  console.log('Searching for "' + query + '"...')
+}
+
 searchForm.addEventListener('submit', event => {
   // TODO(zmd): properly escape/encode as query param
   page('/results?q=' + searchInput.value)
@@ -24,6 +29,12 @@ searchForm.addEventListener('submit', event => {
 })
 
 page('/', () => flipTo(searchPage))
-page('/results', () => flipTo(resultsPage))
+page('/results', () => {
+  flipTo(resultsPage)
+
+  const searchParams = new URLSearchParams(window.location.search)
+
+  processSearch(searchParams.get("q"))
+})
 page('/about', () => flipTo(aboutPage))
 page.start()
