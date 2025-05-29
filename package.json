@@ -4,7 +4,7 @@
   "description": "Search for YouTube Videos",
   "main": "index.js",
   "scripts": {
-    "serve": "node app.js server -l http://127.0.0.1:8080",
+    "serve": "node extras/dev-server.js server -l http://127.0.0.1:8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
