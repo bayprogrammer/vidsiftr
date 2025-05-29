@@ -1,10 +1,20 @@
-import { Greeter } from 'greeter'
 import page from 'page'
 
-const defaultGreeter = new Greeter();
-defaultGreeter.greet()
-defaultGreeter.greet("Bob")
+const searchPage = document.getElementById('page-search')
+const resultsPage = document.getElementById('page-results')
+const aboutPage = document.getElementById('page-about')
 
-const specializedGreeter = new Greeter("Hiya", "peeps")
-specializedGreeter.greet()
-specializedGreeter.greet("y'all")
+const pages = [searchPage, resultsPage, aboutPage]
+
+function flipTo(pageEle) {
+  window.requestAnimationFrame(timestamp => {
+    pages.filter(ele => ele !== pageEle)
+         .forEach(ele => ele.classList.add('page-hidden'))
+    pageEle.classList.remove('page-hidden')
+  })
+}
+
+page('/', () => flipTo(searchPage))
+page('/results', () => flipTo(resultsPage))
+page('/about', () => flipTo(aboutPage))
+page()

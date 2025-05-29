@@ -5,6 +5,12 @@
 
   <title>VidSiftr</title>
 
+  <style>
+    .page-hidden {
+      display: none;
+    }
+  </style>
+
   <script type="importmap">
     {
       "imports": {
@@ -24,10 +30,10 @@
     <nav>
       <ul>
         <li id="nav-search-list-item">
-          <a id="nav-search" href="#">Search</a>
+          <a id="nav-search" href="./">Search</a>
         </li>
         <li id="nav-about-list-item">
-          <a id="nav-about" href="#">About</a>
+          <a id="nav-about" href="./about">About</a>
         </li>
       </ul>
     </nav>
@@ -35,7 +41,7 @@
 
   <main>
 
-    <section id="page-search" style="display: none">
+    <section id="page-search">
       <h2>Search</h2>
       <form action="">
         <label for="search-box">Search:</label>
@@ -47,7 +53,7 @@
         <form>
     </section>
 
-    <section id="page-search-results" style="display: none">
+    <section id="page-results" class="page-hidden">
       <h2>Results</h2>
       <ol>
         <li><a href="#">Result #1</a></li>
@@ -56,7 +62,7 @@
       </ol>
     </section>
 
-    <section id="page-about" style="display: none">
+    <section id="page-about" class="page-hidden">
       <h2>About</h2>
       <p><strike>Powerful and advanced</strike> search interface for sifting
       through all the videos published to YouTube. More coming soon!</p>
