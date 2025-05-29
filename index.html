@@ -5,22 +5,20 @@
 
   <title>VidSiftr</title>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "greeter": "/src/greeter.js"
+      }
+    }
+  </script>
+
+  <script type="module" src="/index.js"></script>
+
 </head><body>
 
   <h1>VidSiftr</h1>
 
   <p>Coming soon!</p>
-
-  <script type="module">
-    import { Greeter } from '/src/greeter.js'
-
-    const defaultGreeter = new Greeter();
-    defaultGreeter.greet()
-    defaultGreeter.greet("Bob")
-
-    const specializedGreeter = new Greeter("Hiya", "peeps")
-    specializedGreeter.greet()
-    specializedGreeter.greet("y'all")
-  </script>
 
 </body></html>
