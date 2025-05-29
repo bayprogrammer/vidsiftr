@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html><head>
 
+  <link rel="shortcut icon" href="#">
+
   <title>VidSiftr</title>
 
 </head><body>
@@ -9,8 +11,16 @@
 
   <p>Coming soon!</p>
 
-  <script>
-    console.log("Coming soon!");
+  <script type="module">
+    import { Greeter } from '/src/greeter.js'
+
+    const defaultGreeter = new Greeter();
+    defaultGreeter.greet()
+    defaultGreeter.greet("Bob")
+
+    const specializedGreeter = new Greeter("Hiya", "peeps")
+    specializedGreeter.greet()
+    specializedGreeter.greet("y'all")
   </script>
 
 </body></html>
