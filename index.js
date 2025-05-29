@@ -6,6 +6,7 @@ const aboutPage = document.getElementById('page-about')
 
 const searchForm = document.getElementById('search-form')
 const searchInput = document.getElementById('search-box')
+const resultsList = document.getElementById('results-list')
 
 const pages = [searchPage, resultsPage, aboutPage]
 
@@ -17,9 +18,25 @@ function flipTo(pageEle) {
   })
 }
 
-function processSearch(query) {
-  // TODO(zmd): submit request to youtube data api for real
-  console.log('Searching for "' + query + '"...')
+function processSearch() {
+  window.requestAnimationFrame(timestamp => {
+    console.log(window.location)
+    const query = new URLSearchParams(window.location.search).get('q')
+
+    if (query) {
+      // TODO(zmd): submit request to youtube data api for real
+      resultsList.textContent = ""
+      console.log('Searching for "' + query + '"...')
+
+      for (let i = 0; i < 3; ++i) {
+        const item = document.createElement("li")
+        item.textContent = query + ' result #' + i
+        resultsList.appendChild(item)
+      }
+    } else {
+      console.log("Nothing to search for :(")
+    }
+  })
 }
 
 searchForm.addEventListener('submit', event => {
@@ -31,10 +48,7 @@ searchForm.addEventListener('submit', event => {
 page('/', () => flipTo(searchPage))
 page('/results', () => {
   flipTo(resultsPage)
-
-  const searchParams = new URLSearchParams(window.location.search)
-
-  processSearch(searchParams.get("q"))
+  processSearch()
 })
 page('/about', () => flipTo(aboutPage))
 page.start()
