@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
 
-  <link rel="shortcut icon" href="#">
+  <meta charset="utf-8"/>
+
+  <link rel="shortcut icon" href="#"/>
 
   <title>VidSiftr</title>
 
@@ -22,19 +24,19 @@
   </script>
 
   <script type="module" src="/index.js"></script>
+  <script type="module" src="/src/vid-siftr-logo.js"></script>
 
 </head><body>
 
   <header>
-    <!-- 🎥 🎞️  📽️  🎬 📺 📹 📼 📀 🛋️  🎟️  🎭 ⭐ 🤩 ▶️  ⏯️  🔍 💫 -->
-    <h1>🎬 VidSiftr</h1>
+    <vid-siftr-logo></vid-siftr-logo>
     <nav>
       <ul>
         <li id="nav-search-list-item">
-          <a id="nav-search" href="./">Search</a>
+          <a id="nav-search" href="/">Search</a>
         </li>
         <li id="nav-about-list-item">
-          <a id="nav-about" href="./about">About</a>
+          <a id="nav-about" href="/about">About</a>
         </li>
       </ul>
     </nav>
@@ -50,7 +52,7 @@
         <input name="search-submit"
                id="search-submit"
                type="submit"
-               value="🔍 Sift!" />
+               value="&#x1F50D Sift!" />
         <form>
     </section>
 
