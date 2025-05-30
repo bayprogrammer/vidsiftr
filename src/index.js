@@ -44,10 +44,15 @@ searchForm.addEventListener('submit', event => {
   event.preventDefault()
 })
 
+// TODO(zmd): the search field should be cleared when navigating to the search
+//   page
 page('/', () => flipTo(searchPage))
+
 page('/results', () => {
   flipTo(resultsPage)
   processSearch()
 })
+
 page('/about', () => flipTo(aboutPage))
+
 page.start()
