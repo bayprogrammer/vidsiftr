@@ -6,6 +6,11 @@ function disableCache(ctx) {
   ctx.res.set('Cache-Control', 'no-cache')
 }
 
+app.get('/config.json', async ctx => {
+  disableCache(ctx)
+  await ctx.sendFile(ctx.home.child('..', 'config.json'))
+})
+
 // serve up app js modules
 app.get('/src/#file', async ctx => {
   disableCache(ctx)

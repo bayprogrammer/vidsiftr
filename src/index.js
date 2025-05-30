@@ -1,4 +1,6 @@
 import page from 'page'
+import config from 'config' with { type: 'json' }
+console.log(config.YouTubeDataApi.key)
 
 const searchPage = document.getElementById('page-search')
 const resultsPage = document.getElementById('page-results')
