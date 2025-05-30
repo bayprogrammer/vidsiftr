@@ -1,6 +1,5 @@
 import page from 'page'
 import config from 'config' with { type: 'json' }
-console.log(config.YouTubeDataApi.key)
 
 const searchPage = document.getElementById('page-search')
 const resultsPage = document.getElementById('page-results')
@@ -20,18 +19,90 @@ function flipTo(pageEle) {
   })
 }
 
-function processSearch() {
-  window.requestAnimationFrame(timestamp => {
-    const query = new URLSearchParams(window.location.search).get('q')
+class YouTubeSifter {
+  constructor(keywords, maxResults, apiKey, endpoint) {
+    this.keywords = keywords
+    this.maxResults = maxResults
+    this.apiKey = apiKey
+    this.endpoint = endpoint
+
+    this._lastResponseBody = null
+  }
+
+  async fetch() {
+    const response = await fetch(this.url)
+    const status = response.status
+    const body = await response.json()
+
+    if (!response.ok) {
+      console.log("YouTubeSifter: encountered error", status, body)
+      return []
+    }
+
+    this._lastResposneBody = body
+
+    // TODO(zmd): do we want to transform the results array?
+    return body.items
+  }
+
+  get url() {
+    return `${this.endpoint}?${this.params}`
+  }
+
+  get params() {
+    return new URLSearchParams({
+      part: 'snippet',
+      maxResults: this.maxResults,
+      order: 'relevance',
+      type: 'video',
+      fields: 'etag,nextPageToken,items/id(videoId),items/snippet(publishedAt,title,description,thumbnails)',
+      q: this.keywords,
+      key: this.apiKey
+    }).toString()
+  }
+}
+
+async function processSearch() {
+  // TODO(zmd): we probably don't want to do this all entirely within a single
+  //   animation frame, TBH
+  window.requestAnimationFrame(async timestamp => {
     resultsList.textContent = ""
 
-    if (query) {
-      // TODO(zmd): submit request to youtube data api for real
-      for (let i = 0; i < 3; ++i) {
+    // TODO(zmd): allow order to be specified (date | rating | relevance)
+    const keywords = new URLSearchParams(window.location.search).get('q')
+
+    const sifter = new YouTubeSifter(
+      keywords,
+      8,
+      config.YouTubeDataApi.key,
+      config.YouTubeDataApi.endpoint,
+    )
+
+    // TODO(zmd): use the result
+    const results = await sifter.fetch()
+    console.log(results)
+
+    if (results.length > 0) {
+      results.forEach(result => {
+        // TODO(zmd): could we ever not have a default thumbnail?
+        const { videoId } = result.id
+        const { title, description, thumbnails } = result.snippet
+        const videoUrl = `https://www.youtube.com/watch?v=${videoId}`
+        const defaultThumbnailUrl = thumbnails.default.url
+
         const item = document.createElement("li")
-        item.textContent = query + ' result #' + i
+
+        // TODO(zmd): so ghetto
+        item.innerHTML = `
+          <a target="_blank" href="${videoUrl}">
+            ${title}<br>
+            <img src="${defaultThumbnailUrl}">
+          </a>
+          <p>${description}</p>
+        `
+
         resultsList.appendChild(item)
-      }
+      })
     } else {
       const item = document.createElement("li")
       item.textContent = 'No results.'
@@ -41,8 +112,11 @@ function processSearch() {
 }
 
 searchForm.addEventListener('submit', event => {
-  // TODO(zmd): properly escape/encode as query param
-  page('/results?q=' + searchInput.value)
+  const searchParams = new URLSearchParams({
+    q: searchInput.value,
+  })
+
+  page('/results?' + searchParams.toString())
   event.preventDefault()
 })
 
