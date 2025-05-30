@@ -20,21 +20,20 @@ function flipTo(pageEle) {
 
 function processSearch() {
   window.requestAnimationFrame(timestamp => {
-    console.log(window.location)
     const query = new URLSearchParams(window.location.search).get('q')
+    resultsList.textContent = ""
 
     if (query) {
       // TODO(zmd): submit request to youtube data api for real
-      resultsList.textContent = ""
-      console.log('Searching for "' + query + '"...')
-
       for (let i = 0; i < 3; ++i) {
         const item = document.createElement("li")
         item.textContent = query + ' result #' + i
         resultsList.appendChild(item)
       }
     } else {
-      console.log("Nothing to search for :(")
+      const item = document.createElement("li")
+      item.textContent = 'No results.'
+      resultsList.appendChild(item)
     }
   })
 }
