@@ -1,34 +1,33 @@
 <!doctype html>
-<html lang="en"><head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,scale=1">
+    <link rel="shortcut icon" href="#">
 
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,scale=1">
-  <link rel="shortcut icon" href="#">
+    <title>VidSiftr</title>
 
-  <title>VidSiftr</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "config": "./config.json",
 
-  <script type="importmap">
-    {
-      "imports": {
-        "config": "./config.json",
+          "components": "./src/components/index.js",
+          "components/vidsiftr-app": "./src/components/vidsiftr-app.js",
+          "components/vidsiftr-logo": "./src/components/vidsiftr-logo.js",
 
-        "components": "./src/components/index.js",
-        "components/vidsiftr-app": "./src/components/vidsiftr-app.js",
-        "components/vidsiftr-logo": "./src/components/vidsiftr-logo.js",
+          "utils": "./src/utils/index.js",
+          "utils/you-tube-searcher": "./src/utils/you-tube-searcher.js",
 
-        "utils": "./src/utils/index.js",
-        "utils/you-tube-searcher": "./src/utils/you-tube-searcher.js",
-
-        "page": "./vendor/page@1.11.6.js",
-        "lit": "./vendor/lit-core@3.3.0.min.js"
+          "page": "./vendor/page@1.11.6.js",
+          "lit": "./vendor/lit-core@3.3.0.min.js"
+        }
       }
-    }
-  </script>
+    </script>
 
-  <script type="module" src="./src/components/vidsiftr-app.js"></script>
-
-</head><body>
-
-  <vidsiftr-app></vidsiftr-app>
-
-</body></html>
+    <script type="module" src="./src/components/vidsiftr-app.js"></script>
+  </head>
+  <body>
+    <vidsiftr-app></vidsiftr-app>
+  </body>
+</html>
