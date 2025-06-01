@@ -7,7 +7,7 @@ export default class VidsiftrLogo extends LitElement {
 
   static styles = css`
     :host {
-      color: #a23060;
+      color: black;
     }
   `
 
