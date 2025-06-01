@@ -6,7 +6,6 @@ export default class VidsiftrSearchBox extends LitElement {
       display: block;
       margin: 0;
       padding: 20pt;
-      /* background-color: #ec7575; */
       background-color: #ec9175;
     }
 
@@ -31,14 +30,14 @@ export default class VidsiftrSearchBox extends LitElement {
       border: none;
       background: none;
       border-radius: 4px;
+      font-size: 11.5pt;
+      color: #692211;
     }
 
     button {
       display: block;
       border: none;
       color: #4f1709;
-      /* background: #9b4e4e; */
-      /* background: #9b5c4e; */
       background: #f0c0ac;
       position: absolute;
       top: 0;
@@ -46,16 +45,16 @@ export default class VidsiftrSearchBox extends LitElement {
       bottom: 0;
       width: 70pt;
       border-radius: 0 4px 4px 0;
+      font-size: 10pt;
+      letter-spacing: 0.05rem;
     }
 
     button:hover {
-      /* background: #b95959; */
-      background: #ce9b8f;
+      background: #e3a89b;
       color: #421d13;
     }
 
     button:active {
-      /* background: #793333; */
       background: #6c3223;
       color: #f0c0ac;
     }
