@@ -23,56 +23,24 @@
 
         "greeter": "/src/greeter.js",
 
+        "components": "/src/components/index.js",
+        "components/vidsiftr-logo": "/src/components/vidsiftr-logo.js",
+
         "utils": "/src/utils/index.js",
         "utils/you-tube-searcher": "/src/utils/you-tube-searcher.js"
       }
     }
   </script>
 
-  <script type="module" src="/src/index.js"></script>
-  <script type="module" src="/src/vid-siftr-logo.js"></script>
+  <script type="module" src="/src/components/index.js"></script>
 
 </head><body>
 
   <header>
-    <vid-siftr-logo></vid-siftr-logo>
-    <nav>
-      <ul>
-        <li id="nav-search-list-item">
-          <a id="nav-search" href="/">Search</a>
-        </li>
-        <li id="nav-about-list-item">
-          <a id="nav-about" href="/about">About</a>
-        </li>
-      </ul>
-    </nav>
+    <vidsiftr-logo></vidsiftr-logo>
   </header>
 
   <main>
-
-    <section id="page-search" class="page-hidden">
-      <h2>Search</h2>
-      <form id="search-form" action="">
-        <label for="search-box">Search:</label>
-        <input name="search-box" id="search-box" type="text" />
-        <input name="search-submit"
-               id="search-submit"
-               type="submit"
-               value="&#x1F50D Sift!" />
-        <form>
-    </section>
-
-    <section id="page-results" class="page-hidden">
-      <h2>Results</h2>
-      <ol id="results-list"></ol>
-    </section>
-
-    <section id="page-about" class="page-hidden">
-      <h2>About</h2>
-      <p><strike>Powerful and advanced</strike> search interface for sifting
-      through all the videos published to YouTube. More coming soon!</p>
-    </section>
-
   </main>
 
   <footer>

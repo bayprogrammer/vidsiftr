@@ -1,6 +1,6 @@
 import {LitElement, css, html} from 'lit'
 
-export class VidSiftrLogo extends LitElement {
+export default class VidsiftrLogo extends LitElement {
   static properties = {
     name: {},
   }
@@ -34,7 +34,7 @@ export class VidSiftrLogo extends LitElement {
   constructor() {
     super()
 
-    this.icon = VidSiftrLogo.icons[0];
+    this.icon = VidsiftrLogo.icons[0];
   }
 
   render() {
@@ -42,4 +42,4 @@ export class VidSiftrLogo extends LitElement {
   }
 }
 
-customElements.define('vid-siftr-logo', VidSiftrLogo)
+customElements.define('vidsiftr-logo', VidsiftrLogo)
