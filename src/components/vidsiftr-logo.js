@@ -6,8 +6,13 @@ export default class VidsiftrLogo extends LitElement {
       margin: 0;
       padding: 56pt;
       color: #f0e2e8;
-      background-color: #a60b21;
+      /* background-color: #a60b21; */
+      background-color: #842610;
       text-align: center;
+      font-family: sans-serif;
+      font-weight: lighter;
+      font-size: 35pt;
+      letter-spacing: 0.45rem;
     }
   `
 

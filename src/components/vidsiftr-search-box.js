@@ -6,7 +6,8 @@ export default class VidsiftrSearchBox extends LitElement {
       display: block;
       margin: 0;
       padding: 20pt;
-      background-color: #ec7575;
+      /* background-color: #ec7575; */
+      background-color: #ec9175;
     }
 
     div {
@@ -35,8 +36,10 @@ export default class VidsiftrSearchBox extends LitElement {
     button {
       display: block;
       border: none;
-      color: white;
-      background: #9b4e4e;
+      color: #4f1709;
+      /* background: #9b4e4e; */
+      /* background: #9b5c4e; */
+      background: #f0c0ac;
       position: absolute;
       top: 0;
       right: 0;
@@ -46,11 +49,15 @@ export default class VidsiftrSearchBox extends LitElement {
     }
 
     button:hover {
-      background: #b95959;
+      /* background: #b95959; */
+      background: #ce9b8f;
+      color: #421d13;
     }
 
     button:active {
-      background: #793333;
+      /* background: #793333; */
+      background: #6c3223;
+      color: #f0c0ac;
     }
   `
 
