@@ -15,6 +15,8 @@ export default class VidsiftrSearchBox extends LitElement {
       max-width: 500px;
       position: relative;
       background-color: white;
+      box-shadow: 0 0 4px -2px black;
+      border-radius: 4px;
     }
 
     input {
@@ -27,6 +29,7 @@ export default class VidsiftrSearchBox extends LitElement {
       height: 25pt;
       border: none;
       background: none;
+      border-radius: 4px;
     }
 
     button {
@@ -39,6 +42,7 @@ export default class VidsiftrSearchBox extends LitElement {
       right: 0;
       bottom: 0;
       width: 70pt;
+      border-radius: 0 4px 4px 0;
     }
 
     button:hover {
