@@ -32,7 +32,8 @@ export default class VidsiftrSearchBox extends LitElement {
     button {
       display: block;
       border: none;
-      background: rgb(195, 112, 112);
+      color: white;
+      background: #9b4e4e;
       position: absolute;
       top: 0;
       right: 0;
@@ -45,11 +46,11 @@ export default class VidsiftrSearchBox extends LitElement {
     }
 
     button:hover {
-      background: rgb(204, 128, 128);
+      background: #b95959;
     }
 
     button:active {
-      background: rgb(190, 110, 110);
+      background: #793333;
     }
   `
 
@@ -57,7 +58,7 @@ export default class VidsiftrSearchBox extends LitElement {
     return html`
       <div>
         <input type="text" placeholder="Keywords">
-        <button>&#x1F50D Sift!</button>
+        <button>Sift!</button>
       </div>
     `
   }
