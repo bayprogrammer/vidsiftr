@@ -23,7 +23,7 @@ export default class VidsiftrSearchBox extends LitElement {
       padding: 0;
       margin: 0;
       display: inline-block;
-      width: 75%;
+      width: calc(100% - 70pt);
       height: 15pt;
       border: none;
       background: none;
@@ -37,7 +37,7 @@ export default class VidsiftrSearchBox extends LitElement {
       top: 0;
       right: 0;
       bottom: 0;
-      width: 25%;
+      width: 70pt;
       /*
       padding-left: 10pt;
       padding-right: 10pt;
@@ -46,6 +46,10 @@ export default class VidsiftrSearchBox extends LitElement {
 
     button:hover {
       background: rgb(204, 128, 128);
+    }
+
+    button:active {
+      background: rgb(190, 110, 110);
     }
   `
 
