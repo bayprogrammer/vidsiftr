@@ -14,11 +14,28 @@ export default class VidsiftrApp extends LitElement {
       min-width: 340px;
       background-color: #ffe6cb;
       box-shadow: 0 0 10px -3px black;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
     * {
       margin: 0;
       padding: 0;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      clear: both;
+      font-family: sans;
+      font-size: 8pt;
+      background: #ec9175;
+      color: #6a1d0a;
+      padding: 0.5em;
+      text-align: center;
     }
   `
 
