@@ -1,5 +1,6 @@
 import {LitElement, html} from 'lit'
 import 'components/vidsiftr-logo'
+import 'components/vidsiftr-search'
 
 export default class VidsiftrApp extends LitElement {
   render() {
@@ -9,7 +10,7 @@ export default class VidsiftrApp extends LitElement {
       </header>
 
       <main>
-        <!-- TODO(zmd): c'mon, do someth'n -->
+        <vidsiftr-search></vidsiftr-search>
       </main>
 
       <footer>
