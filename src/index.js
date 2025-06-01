@@ -1,4 +1,5 @@
 import page from 'page'
+import YouTubeSearcher from 'you-tube-searcher'
 import config from 'config' with { type: 'json' }
 
 const searchPage = document.getElementById('page-search')
@@ -17,49 +18,6 @@ function flipTo(pageEle) {
          .forEach(ele => ele.classList.add('page-hidden'))
     pageEle.classList.remove('page-hidden')
   })
-}
-
-class YouTubeSifter {
-  constructor(keywords, maxResults, apiKey, endpoint) {
-    this.keywords = keywords
-    this.maxResults = maxResults
-    this.apiKey = apiKey
-    this.endpoint = endpoint
-
-    this._lastResponseBody = null
-  }
-
-  async fetch() {
-    const response = await fetch(this.url)
-    const status = response.status
-    const body = await response.json()
-
-    if (!response.ok) {
-      console.log("YouTubeSifter: encountered error", status, body)
-      return []
-    }
-
-    this._lastResposneBody = body
-
-    // TODO(zmd): do we want to transform the results array?
-    return body.items
-  }
-
-  get url() {
-    return `${this.endpoint}?${this.params}`
-  }
-
-  get params() {
-    return new URLSearchParams({
-      part: 'snippet',
-      maxResults: this.maxResults,
-      order: 'relevance',
-      type: 'video',
-      fields: 'etag,nextPageToken,items/id(videoId),items/snippet(publishedAt,title,description,thumbnails)',
-      q: this.keywords,
-      key: this.apiKey
-    }).toString()
-  }
 }
 
 async function processSearch() {
