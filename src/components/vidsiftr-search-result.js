@@ -5,58 +5,65 @@ export default class VidsiftrSearchResult extends LitElement {
     .result {
       display: block;
       overflow: hidden;
-      position: relative;
+      height: 100%;
     }
 
-    p {
+    a, p {
       margin: 0;
       padding: 0;
       line-height: 1.5em;
     }
 
     .title {
-      /*
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      */
-
       border: solid 1px gray;
       background: tomato;
-
-      padding: 0;
-      margin: 0;
-
       display: block;
       height: 3em;
       overflow: hidden;
     }
 
     .thumbnail {
-      /* TODO(zmd) */
+      position: relative;
+      line-height: 0;
+    }
+
+    .thumbnail > img {
+      width: 100%;
     }
 
     .comment-count {
-      /* TODO(zmd) */
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: purple;
+      padding: 0.25em;
+      border: 1px;
+      box-sizing: border-box;
     }
 
     .description {
-      /* TODO(zmd) */
+      border: solid 1px blue;
+      background: green;
+      display: block;
+      height: 4.5em;
+      overflow: hidden;
     }
   `
 
   render() {
     return html`
-      <a class="result" href="#">
+      <a target="_blank" class="result" href="#">
         <div class="title">
           <p>How to earn a trillion dollars working only 10 minutes every day!</p>
         </div>
         <div class="thumbnail">
-          <p>Just imagine how awesome this thumbnail is</p>
-        </div>
-        <div class="comment-count">
-          <p><span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span> 100000000000000</p>
+          <img
+            class="thumbnail-default"
+            src="https://i.ytimg.com/vi/3EztTIYVa1E/default.jpg"
+          >
+          <div class="comment-count">
+            <p><span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span> 1.2k</p>
+          </div>
         </div>
         <div class="description">
           <p>This is totally a description</p>
