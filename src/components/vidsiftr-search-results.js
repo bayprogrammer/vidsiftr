@@ -17,6 +17,9 @@ export default class VidsiftrSearchResults extends LitElement {
             <div class="thumbnail">
               <p>Just imagine how awesome this thumbnail is</p>
             </div>
+            <div class="comment-count">
+              <p>&#x1F5E8; 100000000000000</p>
+            </div>
             <div class="description">
               <p>This is totally a description</p>
             </div>
