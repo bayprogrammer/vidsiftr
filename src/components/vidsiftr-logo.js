@@ -6,8 +6,16 @@ export default class VidsiftrLogo extends LitElement {
   }
 
   static styles = css`
-    :host {
-      color: black;
+    span {
+      opacity: 75%;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 56pt;
+      color: rgb(78, 5, 33);
+      background-color: rgb(234, 19, 49);
+      text-align: center;
     }
   `
 
@@ -38,7 +46,7 @@ export default class VidsiftrLogo extends LitElement {
   }
 
   render() {
-    return html`<h1>${this.icon} VidSiftr</h1>`
+    return html`<h1><span>${this.icon}</span> VidSiftr</h1>`
   }
 }
 
