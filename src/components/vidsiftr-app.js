@@ -12,7 +12,7 @@ export default class VidsiftrApp extends LitElement {
       display: block;
       max-width: 960px;
       min-width: 340px;
-      background-color: lightgray;
+      background-color: #ffe6cb;
     }
 
     * {

@@ -6,15 +6,13 @@ export default class VidsiftrSearchBox extends LitElement {
       display: block;
       margin: 0;
       padding: 20pt;
-      background-color: rgb(244, 120, 120);
+      background-color: #ec7575;
     }
 
     div {
       margin-left: auto;
       margin-right: auto;
-      padding: 5pt;
-      /* border: solid 1px black; */
-      max-width: 600px;
+      max-width: 500px;
       position: relative;
       background-color: white;
     }
@@ -22,9 +20,11 @@ export default class VidsiftrSearchBox extends LitElement {
     input {
       padding: 0;
       margin: 0;
+      padding-left: 1em;
+      padding-right: calc(70pt + 1em);
       display: inline-block;
-      width: calc(100% - 70pt);
-      height: 15pt;
+      width: calc(100% - 2em - 70pt);
+      height: 25pt;
       border: none;
       background: none;
     }
@@ -39,10 +39,6 @@ export default class VidsiftrSearchBox extends LitElement {
       right: 0;
       bottom: 0;
       width: 70pt;
-      /*
-      padding-left: 10pt;
-      padding-right: 10pt;
-      */
     }
 
     button:hover {
