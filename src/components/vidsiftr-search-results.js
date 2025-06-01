@@ -1,24 +1,50 @@
-import {LitElement, html} from 'lit'
+import {LitElement, css, html} from 'lit'
 import 'components/vidsiftr-search-result'
 
 export default class VidsiftrSearchResults extends LitElement {
+  static styles = css`
+    #results {
+      padding: 0;
+      margin: 2%;
+    }
+
+    vidsiftr-search-result {
+      padding: 0;
+      margin: 2%;
+      float: left;
+      height: 300px;
+      width: 45.6%;
+      border: 1px solid #f2d2b0;
+      box-shadow: #885e31 1px 1px 4px -2px;
+    }
+
+    vidsiftr-search-result:hover {
+      box-shadow: #3d260e 2px 2px 9px -4px;
+    }
+
+    #clearfix {
+      clear: both;
+    }
+  `
+
   render() {
     return html`
-      <div>
-        <div class="status">
+      <div id="results">
+        <!--
+        <div id="status">
           <p>No Results.</p>
         </div>
+        -->
 
-        <div class="results">
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-          <vidsiftr-search-result></vidsiftr-search-result>
-        </div>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result></vidsiftr-search-result>
+        <div id="clearfix"></div>
       </div>
     `
   }

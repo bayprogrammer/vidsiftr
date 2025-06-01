@@ -1,9 +1,28 @@
-import {LitElement, html} from 'lit'
+import {LitElement, css, html} from 'lit'
 
 export default class VidsiftrSearchResult extends LitElement {
+  static styles = css`
+    .result {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .thumbnail {
+      /* TODO(zmd) */
+    }
+
+    .comment-count {
+      /* TODO(zmd) */
+    }
+
+    .description {
+      /* TODO(zmd) */
+    }
+  `
+
   render() {
     return html`
-      <div class="search-result">
+      <div class="result">
         <div class="title">
           <p>How to earn a trillion dollars working only 10 minutes every day!</p>
         </div>
