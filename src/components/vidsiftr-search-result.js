@@ -82,23 +82,25 @@ export default class VidsiftrSearchResult extends LitElement {
 
   render() {
     return html`
-      <a target="_blank" class="result" href="#">
-        <div class="title">
-          <p>How to earn a trillion dollars working only 10 minutes every day!</p>
-        </div>
-        <div class="thumbnail">
-          <img
-            class="thumbnail-default"
-            src="https://i.ytimg.com/vi/3EztTIYVa1E/default.jpg"
-          >
-          <div class="comment-count">
-            <p><span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span> 1.2k</p>
+      <div class="result">
+        <a target="_blank" href="#">
+          <div class="title">
+            <p>How to earn a trillion dollars working only 10 minutes every day!</p>
           </div>
-        </div>
+          <div class="thumbnail">
+            <img
+              class="thumbnail-default"
+              src="https://i.ytimg.com/vi/3EztTIYVa1E/default.jpg"
+            >
+            <div class="comment-count">
+              <p><span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span> 1.2k</p>
+            </div>
+          </div>
+        </a>
         <div class="description">
           <p>This is totally a description This is totally a description This is totally a description This is totally a description This is totally a description This is totally a description</p>
         </div>
-      </a>
+      </div>
     `
   }
 }

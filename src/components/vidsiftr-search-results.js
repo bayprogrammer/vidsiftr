@@ -21,6 +21,21 @@ export default class VidsiftrSearchResults extends LitElement {
       box-shadow: #3d260e 2px 2px 9px -4px;
     }
 
+    @media(max-width: 650px) {
+      #results {
+        margin: 4%;
+      }
+
+      vidsiftr-search-result {
+        margin: 4%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        width: 100%;
+        display: block;
+      }
+    }
+
     #clearfix {
       clear: both;
     }
@@ -29,12 +44,6 @@ export default class VidsiftrSearchResults extends LitElement {
   render() {
     return html`
       <div id="results">
-        <!--
-        <div id="status">
-          <p>No Results.</p>
-        </div>
-        -->
-
         <vidsiftr-search-result></vidsiftr-search-result>
         <vidsiftr-search-result></vidsiftr-search-result>
         <vidsiftr-search-result></vidsiftr-search-result>
