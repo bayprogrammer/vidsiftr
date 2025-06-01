@@ -12,7 +12,7 @@ app.get('/config.json', async ctx => {
 })
 
 // serve up app js modules
-app.get('/src/#file', async ctx => {
+app.get('/src/*file', async ctx => {
   disableCache(ctx)
   await ctx.sendFile(ctx.home.child('..', 'src', ctx.stash.file))
 })

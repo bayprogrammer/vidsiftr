@@ -1,5 +1,5 @@
 import page from 'page'
-import YouTubeSearcher from 'you-tube-searcher'
+import YouTubeSearcher from 'utils/you-tube-searcher'
 import config from 'config' with { type: 'json' }
 
 const searchPage = document.getElementById('page-search')
