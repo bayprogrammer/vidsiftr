@@ -6,20 +6,33 @@ export default class VidsiftrSearchResult extends LitElement {
       display: block;
       overflow: hidden;
       height: 100%;
+      border-radius: 3px;
     }
 
     a, p {
       margin: 0;
       padding: 0;
       line-height: 1.5em;
+      text-decoration: none;
+      font-family: sans;
     }
 
     .title {
-      border: solid 1px gray;
-      background: tomato;
       display: block;
       height: 3em;
       overflow: hidden;
+      font-size: 12pt;
+      padding: 0.25em;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      background: #6c3223;
+      color: #f0c0ac;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    .title:hover {
+      text-decoration: underline;
     }
 
     .thumbnail {
@@ -31,22 +44,39 @@ export default class VidsiftrSearchResult extends LitElement {
       width: 100%;
     }
 
+    .comment-count, .description {
+      color: #4f1709;
+      background: #f0c0ac;
+    }
+
     .comment-count {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      background: purple;
+      bottom: 0.4em;
+      right: 0.4em;
+      border: solid 1px #dbab97;
+      opacity: 50%;
+      border-right: none;
+      border-bottom: none;
       padding: 0.25em;
-      border: 1px;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
       box-sizing: border-box;
+      font-size: 8pt;
+      border-radius: 4px;
+      background: #e3a89b;
+      color: #421d13;
+    }
+
+    .comment-count:hover, .comment-count:focus {
+      opacity: 100%;
     }
 
     .description {
-      border: solid 1px blue;
-      background: green;
       display: block;
-      height: 4.5em;
-      overflow: hidden;
+      height: 3.5em;
+      overflow: scroll;
+      font-size: 10pt;
+      padding: 1em;
     }
   `
 
@@ -66,7 +96,7 @@ export default class VidsiftrSearchResult extends LitElement {
           </div>
         </div>
         <div class="description">
-          <p>This is totally a description</p>
+          <p>This is totally a description This is totally a description This is totally a description This is totally a description This is totally a description This is totally a description</p>
         </div>
       </a>
     `

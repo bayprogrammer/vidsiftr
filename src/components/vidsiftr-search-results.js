@@ -12,7 +12,6 @@ export default class VidsiftrSearchResults extends LitElement {
       padding: 0;
       margin: 2%;
       float: left;
-      /* height: 440px; */
       width: 45.6%;
       border: 1px solid #f2d2b0;
       box-shadow: #885e31 1px 1px 4px -2px;

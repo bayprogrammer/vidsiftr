@@ -37,6 +37,8 @@ export default class VidsiftrSearchBox extends LitElement {
     button {
       display: block;
       border: none;
+      border-left: solid 1px #dbab97;
+      border-radius: 0 4px 4px 0;
       color: #4f1709;
       background: #f0c0ac;
       position: absolute;
@@ -44,10 +46,8 @@ export default class VidsiftrSearchBox extends LitElement {
       right: 0;
       bottom: 0;
       width: 70pt;
-      border-radius: 0 4px 4px 0;
       font-size: 10pt;
       letter-spacing: 0.05rem;
-      border-left: solid 1px #dbab97;
     }
 
     button:hover {
