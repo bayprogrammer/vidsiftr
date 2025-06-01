@@ -44,14 +44,13 @@ export default class VidsiftrSearchResults extends LitElement {
   render() {
     return html`
       <div id="results">
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
-        <vidsiftr-search-result></vidsiftr-search-result>
+        <vidsiftr-search-result
+          .videoUrl=${"https://www.youtube.com/watch?v=zofMnllkVfI"}
+          .title=${"JavaScript - Introduction - W3Schools.com"}
+          .thumbnailUrl=${"https://i.ytimg.com/vi/zofMnllkVfI/hqdefault.jpg"}
+          .commentCount=${"TBD"}
+          .description=${"This video is an introduction to JavaScript. Part of a series of video tutorials to learn JavaScript for beginners! The page this is ..."}
+        ></vidsiftr-search-result>
         <div id="clearfix"></div>
       </div>
     `

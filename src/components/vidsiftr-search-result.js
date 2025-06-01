@@ -1,6 +1,14 @@
 import {LitElement, css, html} from 'lit'
 
 export default class VidsiftrSearchResult extends LitElement {
+  static properties = {
+    videoUrl: {},
+    title: {},
+    thumbnailUrl: {},
+    commentCount: {},
+    description: {},
+  }
+
   static styles = css`
     .result {
       display: block;
@@ -73,8 +81,8 @@ export default class VidsiftrSearchResult extends LitElement {
 
     .description {
       display: block;
-      height: 3.5em;
-      overflow: scroll;
+      height: 5em;
+      overflow: overflow;
       font-size: 10pt;
       padding: 1em;
     }
@@ -83,22 +91,25 @@ export default class VidsiftrSearchResult extends LitElement {
   render() {
     return html`
       <div class="result">
-        <a target="_blank" href="#">
+        <a target="_blank" href="${this.videoUrl}">
           <div class="title">
-            <p>How to earn a trillion dollars working only 10 minutes every day!</p>
+            <p>${this.title}</p>
           </div>
           <div class="thumbnail">
             <img
               class="thumbnail-default"
-              src="https://i.ytimg.com/vi/3EztTIYVa1E/default.jpg"
+              src="${this.thumbnailUrl}"
             >
             <div class="comment-count">
-              <p><span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span> 1.2k</p>
+              <p>
+                <span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span>
+                ${this.commentCount}
+              </p>
             </div>
           </div>
         </a>
         <div class="description">
-          <p>This is totally a description This is totally a description This is totally a description This is totally a description This is totally a description This is totally a description</p>
+          <p>${this.description}</p>
         </div>
       </div>
     `
