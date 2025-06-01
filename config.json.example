@@ -1,5 +1,230 @@
 {
     "YouTubeDataApi": {
-	"key": "[YOUR API KEY]"
+        "key": "[YOUR API KEY]",
+        "endpoint": "https://youtube.googleapis.com/youtube/v3/search",
+        "fixtures": {
+            "javascript": {
+                "etag": "9PQuEd5yJQggZytroiI0QsAejoY",
+                "nextPageToken": "CAgQAA",
+                "items": [
+                    {
+                        "id": {
+                            "videoId": "zofMnllkVfI"
+                        },
+                        "snippet": {
+                            "publishedAt": "2024-12-11T13:01:17Z",
+                            "title": "JavaScript - Introduction - W3Schools.com",
+                            "description": "This video is an introduction to JavaScript. Part of a series of video tutorials to learn JavaScript for beginners! The page this is ...",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/zofMnllkVfI/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/zofMnllkVfI/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/zofMnllkVfI/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "DHjqpvDnNGE"
+                        },
+                        "snippet": {
+                            "publishedAt": "2022-01-13T17:56:13Z",
+                            "title": "JavaScript in 100 Seconds",
+                            "description": "JavaScript is the the programming language that built the web. Learn how it evolved into a powerful tool for building websites, ...",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/DHjqpvDnNGE/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/DHjqpvDnNGE/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/DHjqpvDnNGE/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "zO6CHvTErxE"
+                        },
+                        "snippet": {
+                            "publishedAt": "2023-12-03T23:13:17Z",
+                            "title": "The best thing you can do with JavaScript #javascript #programming",
+                            "description": "",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/zO6CHvTErxE/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/zO6CHvTErxE/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/zO6CHvTErxE/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "lkIFF4maKMU"
+                        },
+                        "snippet": {
+                            "publishedAt": "2022-11-22T15:04:57Z",
+                            "title": "100+ JavaScript Concepts you Need to Know",
+                            "description": "The ultimate 10 minute JavaScript course that quickly breaks down over 100 key concepts every web developer should know.",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/lkIFF4maKMU/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/lkIFF4maKMU/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/lkIFF4maKMU/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "W6NZfCO5SIk"
+                        },
+                        "snippet": {
+                            "publishedAt": "2018-04-24T02:37:33Z",
+                            "title": "JavaScript Course for Beginners – Your First Step to Web Development",
+                            "description": "Learn JavaScript basics with this quick, beginner-friendly course! ⚡ Perfect for new coders ready to build real skills and start ...",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/W6NZfCO5SIk/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/W6NZfCO5SIk/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/W6NZfCO5SIk/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "I5_Gx3JNho8"
+                        },
+                        "snippet": {
+                            "publishedAt": "2024-05-29T19:37:45Z",
+                            "title": "How To Master JavaScript",
+                            "description": "Twitch Everything is built live on twitch Twitch : https://bit.ly/3xhFO3E Discord: discord.gg/ThePrimeagen Spotify DevHour: ...",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/I5_Gx3JNho8/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/I5_Gx3JNho8/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/I5_Gx3JNho8/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "Ihy0QziLDf0"
+                        },
+                        "snippet": {
+                            "publishedAt": "2023-10-14T18:00:38Z",
+                            "title": "JavaScript tutorial for beginners 🌐",
+                            "description": "JavaScript #tutorial #course 00:00:00 introduction 00:01:12 VS Code 00:01:30 website folder 00:02:55 HTML setup 00:04:09 Live ...",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/Ihy0QziLDf0/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/Ihy0QziLDf0/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/Ihy0QziLDf0/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "id": {
+                            "videoId": "upDLs1sn7g4"
+                        },
+                        "snippet": {
+                            "publishedAt": "2018-04-24T04:00:17Z",
+                            "title": "What is JavaScript?",
+                            "description": "What is JavaScript? This short video explains it in 5 minutes. Get the full JavaScript course: http://bit.ly/2M1sp4B Subscribe for ...",
+                            "thumbnails": {
+                                "default": {
+                                    "url": "https://i.ytimg.com/vi/upDLs1sn7g4/default.jpg",
+                                    "width": 120,
+                                    "height": 90
+                                },
+                                "medium": {
+                                    "url": "https://i.ytimg.com/vi/upDLs1sn7g4/mqdefault.jpg",
+                                    "width": 320,
+                                    "height": 180
+                                },
+                                "high": {
+                                    "url": "https://i.ytimg.com/vi/upDLs1sn7g4/hqdefault.jpg",
+                                    "width": 480,
+                                    "height": 360
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        }
     }
 }

@@ -2,11 +2,11 @@ import {LitElement, css, html} from 'lit'
 
 export default class VidsiftrSearchResult extends LitElement {
   static properties = {
-    videoUrl: {},
-    title: {},
-    thumbnailUrl: {},
-    commentCount: {},
-    description: {},
+    videoUrl: { type: 'String' },
+    title: { type: 'String' },
+    thumbnailUrl: { type: 'String' },
+    commentCount: { type: 'String' },
+    description: { type: 'String' },
   }
 
   static styles = css`
@@ -109,7 +109,9 @@ export default class VidsiftrSearchResult extends LitElement {
           </div>
         </a>
         <div class="description">
-          <p>${this.description}</p>
+          <p>${this.description.length > 0
+                 ? this.description
+                 : html`<em>No description available.</em>`}</p>
         </div>
       </div>
     `

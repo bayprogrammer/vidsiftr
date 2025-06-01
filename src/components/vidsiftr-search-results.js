@@ -2,10 +2,27 @@ import {LitElement, css, html} from 'lit'
 import 'components/vidsiftr-search-result'
 
 export default class VidsiftrSearchResults extends LitElement {
+  static properties = {
+    items: { type: 'Array' },
+    status: { type: 'String' },
+  }
+
   static styles = css`
     #results {
       padding: 0;
       margin: 2%;
+    }
+
+    #no-results {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #no-results p {
+      font-size: 20pt;
+      font-family: sans;
+      color: #842610;
     }
 
     vidsiftr-search-result {
@@ -41,18 +58,59 @@ export default class VidsiftrSearchResults extends LitElement {
     }
   `
 
+  constructor() {
+    super()
+
+    this.status = 'Submit a search to get started...'
+  }
+
   render() {
     return html`
       <div id="results">
-        <vidsiftr-search-result
-          .videoUrl=${"https://www.youtube.com/watch?v=zofMnllkVfI"}
-          .title=${"JavaScript - Introduction - W3Schools.com"}
-          .thumbnailUrl=${"https://i.ytimg.com/vi/zofMnllkVfI/hqdefault.jpg"}
-          .commentCount=${"TBD"}
-          .description=${"This video is an introduction to JavaScript. Part of a series of video tutorials to learn JavaScript for beginners! The page this is ..."}
-        ></vidsiftr-search-result>
+        ${this.items
+            ? this.renderItems(this.items)
+            : this.renderNoResults()}
         <div id="clearfix"></div>
       </div>
+    `
+  }
+
+  renderItems(items) {
+    return items.length < 1
+      ? this.renderNoResults('No videos found for your keywords.')
+      : items.map(this.renderItem)
+  }
+
+  renderItem = (item) => {
+    const { videoId } = item.id
+    const { title, description, thumbnails } = item.snippet
+
+    return html`
+      <vidsiftr-search-result
+        .videoUrl=${this.videoUrl(videoId)}
+        .title=${title}
+        .thumbnailUrl=${this.thumbnailUrl(thumbnails)}
+        .commentCount=${"TBD"}
+        .description=${description}
+      ></vidsiftr-search-result>
+    `
+  }
+
+  videoUrl(videoId) {
+    return `https://www.youtube.com/watch?v=${videoId}`
+  }
+
+  thumbnailUrl(thumbnails) {
+    return thumbnails?.high?.url
+      ?? thumbnails?.medium?.url
+      ?? thumbnails?.high?.url
+  }
+
+  renderNoResults(status) {
+    status ??= this.status
+
+    return html`
+      <div id="no-results"><p>${status}</p></div>
     `
   }
 }
