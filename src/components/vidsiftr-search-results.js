@@ -75,7 +75,7 @@ export default class VidsiftrSearchResults extends LitElement {
     `
   }
 
-  renderItems(items) {
+  renderItems = (items) => {
     return items.length < 1
       ? this.renderNoResults('No videos found for your keywords.')
       : items.map(this.renderItem)
@@ -96,17 +96,17 @@ export default class VidsiftrSearchResults extends LitElement {
     `
   }
 
-  videoUrl(videoId) {
+  videoUrl = (videoId) => {
     return `https://www.youtube.com/watch?v=${videoId}`
   }
 
-  thumbnailUrl(thumbnails) {
+  thumbnailUrl = (thumbnails) => {
     return thumbnails?.high?.url
       ?? thumbnails?.medium?.url
-      ?? thumbnails?.high?.url
+      ?? thumbnails?.default?.url
   }
 
-  renderNoResults(status) {
+  renderNoResults = (status) => {
     status ??= this.status
 
     return html`
