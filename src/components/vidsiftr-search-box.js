@@ -71,9 +71,13 @@ export default class VidsiftrSearchBox extends LitElement {
     `
   }
 
+  firstUpdated() {
+    this._keywordsInput.focus()
+  }
+
   formSubmitted = (event) => {
     event.preventDefault()
-    const keywords = this._input?.value ?? ''
+    const keywords = this._keywordsInput.value ?? ''
 
     this.dispatchEvent(new CustomEvent('search-submitted', {
       bubbles: true,
@@ -82,8 +86,8 @@ export default class VidsiftrSearchBox extends LitElement {
     }))
   }
 
-  get _input() {
-    return this.renderRoot?.getElementById('keywords') ?? null
+  get _keywordsInput() {
+    return this.renderRoot.getElementById('keywords')
   }
 }
 
