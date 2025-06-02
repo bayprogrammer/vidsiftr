@@ -1,7 +1,7 @@
 {
     "YouTubeDataApi": {
         "key": "[YOUR API KEY]",
-        "endpoint": "https://youtube.googleapis.com/youtube/v3/search",
+        "endpoint": "https://youtube.googleapis.com/youtube/v3",
         "searchFixtures": {
             "javascript": {
                 "etag": "9PQuEd5yJQggZytroiI0QsAejoY",
