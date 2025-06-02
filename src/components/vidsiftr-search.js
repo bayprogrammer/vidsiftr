@@ -7,8 +7,10 @@ export default class VidsiftrSearch extends LitElement {
   constructor() {
     super()
 
+    this.addEventListener('search-submitted', this.handleSearchSubmitted)
+
     // TODO(zmd): temporary testing, remove once finished
-    this.testResult = config.YouTubeDataApi.fixtures['javascript']
+    //this.testResult = config.YouTubeDataApi.fixtures['javascript']
     //this.testResult = {items: []}
     //this.testResult = undefined
     //this.testResult = null
@@ -21,6 +23,11 @@ export default class VidsiftrSearch extends LitElement {
         .items=${this.testResult?.items}
       ></vidsiftr-search-results>
     `
+  }
+
+  handleSearchSubmitted = (event) => {
+    // TODO(zmd): remove logging
+    console.log(event.detail.keywords)
   }
 }
 

@@ -9,7 +9,7 @@ export default class VidsiftrSearchBox extends LitElement {
       background-color: #ec9175;
     }
 
-    div {
+    form {
       margin-left: auto;
       margin-right: auto;
       max-width: 500px;
@@ -64,11 +64,26 @@ export default class VidsiftrSearchBox extends LitElement {
 
   render() {
     return html`
-      <div>
-        <input type="text" placeholder="Keywords">
+      <form @submit="${this.formSubmitted}">
+        <input type="text" name="keywords" id="keywords" placeholder="Keywords">
         <button>Sift!</button>
-      </div>
+      </form>
     `
+  }
+
+  formSubmitted = (event) => {
+    event.preventDefault()
+    const keywords = this._input?.value ?? ''
+
+    this.dispatchEvent(new CustomEvent('search-submitted', {
+      bubbles: true,
+      composed: true,
+      detail: { keywords },
+    }))
+  }
+
+  get _input() {
+    return this.renderRoot?.getElementById('keywords') ?? null
   }
 }
 
