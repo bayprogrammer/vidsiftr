@@ -46,7 +46,7 @@ export default class VidsiftrSearchBox extends LitElement {
       right: 0;
       bottom: 0;
       width: 70pt;
-      font-size: 10pt;
+      font-size: 11pt;
       letter-spacing: 0.05rem;
     }
 
