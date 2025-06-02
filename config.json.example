@@ -2,7 +2,7 @@
     "YouTubeDataApi": {
         "key": "[YOUR API KEY]",
         "endpoint": "https://youtube.googleapis.com/youtube/v3/search",
-        "fixtures": {
+        "searchFixtures": {
             "javascript": {
                 "etag": "9PQuEd5yJQggZytroiI0QsAejoY",
                 "nextPageToken": "CAgQAA",
