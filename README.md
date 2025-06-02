@@ -16,7 +16,7 @@ Speaking of dev-servers and development, you can install (almost) everything
 you need to run the application locally like so:
 
 ```
-$ cp .config.json.example config.json
+$ cp config.json.example config.json
 $ vi config.json
 $ npm ci --include-dev
 $ npm run serve
