@@ -3,7 +3,9 @@ export default class YouTubeSearcher {
   #maxResults
   #apiKey
   #endpoint
-  #lastResponseBody = null
+
+  #items = null
+  #videoIds = null
 
   constructor(keywords, maxResults, apiKey, endpoint) {
     this.#keywords = keywords
@@ -13,36 +15,58 @@ export default class YouTubeSearcher {
   }
 
   async fetchItems() {
+    if (this.#items) {
+      console.warn("Previously fetched video items, returning those.")
+
+      return this.#items
+    }
+
+    const body = await this.#fetch(this.#fetchItemsUrl)
+      ?? { items: [] }
+
+    this.#items = body.items
+    this.#videoIds = body.items.map(item => item.id.videoId)
+
+    return body.items
+  }
+
+  async fetchCommentCounts() {
+    if (!this.#videoIds) {
+      console.warn("Cannot fetch comments if we don't have the videos yet.")
+
+      return {}
+    }
+
+    const body = await this.#fetch(this.#fetchCommentCountsUrl)
+
+    return Object.fromEntries(body.items.map(item => [
+      item.id,
+      item.statistics.commentCount,
+    ]))
+  }
+
+  async #fetch(url) {
     try {
-      const response = await fetch(this.#fetchItemsUrl)
+      const response = await fetch(url)
       const status = response.status
       const body = await response.json()
 
       if (!response.ok) {
-        console.log("YouTubeSifter: encountered error", status, body)
-        return []
+        console.error("YouTubeSearcher: encountered error", status, body)
+
+        return null
       }
 
-      console.log('old last response body was: ' + this.#lastResponseBody)
-      this.#lastResponseBody = body
-
-      return body.items
+      return body
     } catch (e) {
-      console.log(`Unable to search YouTube: ${e.message}`)
-      return []
+      console.error(`Unable to access YouTube: ${e.message}`)
+
+      return null
     }
   }
 
-  async fetchCommentCounts() {
-    // TODO(zmd): implement me
-  }
-
-  async fetchCommentCount(videoId) {
-    // TODO(zmd): implement me
-  }
-
   get #fetchItemsUrl() {
-    return `${this.#endpoint}?${this.#fetchItemsParams}`
+    return `${this.#endpoint}/search?${this.#fetchItemsParams}`
   }
 
   get #fetchItemsParams() {
@@ -51,17 +75,22 @@ export default class YouTubeSearcher {
       maxResults: this.#maxResults,
       order: 'relevance',
       type: 'video',
-      fields: 'etag,nextPageToken,items/id(videoId),items/snippet(publishedAt,title,description,thumbnails)',
+      fields: 'items/id(videoId),items/snippet(title,description,thumbnails)',
       q: this.#keywords,
       key: this.#apiKey
     }).toString()
   }
 
-  get #fetchCommentCountUrl() {
-    // TODO(zmd): implement me
+  get #fetchCommentCountsUrl() {
+    return `${this.#endpoint}/videos?${this.#fetchCommentCountParams}`
   }
 
   get #fetchCommentCountParams() {
-    // TODO(zmd): implement me
+    return new URLSearchParams({
+      part: 'statistics',
+      id: this.#videoIds?.join(',') ?? '',
+      fields: 'items/id,items/statistics(commentCount)',
+      key: this.#apiKey,
+    }).toString()
   }
 }

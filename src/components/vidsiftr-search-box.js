@@ -62,6 +62,10 @@ export default class VidsiftrSearchBox extends LitElement {
     }
   `
 
+  firstUpdated() {
+    this.#keywordsInput.focus()
+  }
+
   render() {
     return html`
       <form @submit="${this.formSubmitted}">
@@ -69,10 +73,6 @@ export default class VidsiftrSearchBox extends LitElement {
         <button>Sift!</button>
       </form>
     `
-  }
-
-  firstUpdated() {
-    this.#keywordsInput.focus()
   }
 
   formSubmitted = (event) => {

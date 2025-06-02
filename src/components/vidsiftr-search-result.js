@@ -96,23 +96,32 @@ export default class VidsiftrSearchResult extends LitElement {
             <p>${this.title}</p>
           </div>
           <div class="thumbnail">
-            <img
-              class="thumbnail-default"
-              src="${this.thumbnailUrl}"
-            >
-            <div class="comment-count">
-              <p>
-                <span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span>
-                ${this.commentCount}
-              </p>
-            </div>
+            <img class="thumbnail-default" src="${this.thumbnailUrl}">
+            ${this.#renderCommentCount()}
           </div>
         </a>
         <div class="description">
-          <p>${this.description.length > 0
-                 ? this.description
-                 : html`<em>No description available.</em>`}</p>
+          <p>
+            ${this.description.length > 0
+                ? this.description
+                : html`<em>No description available.</em>`}
+          </p>
         </div>
+      </div>
+    `
+  }
+
+  #renderCommentCount() {
+    if (!this.commentCount) {
+      return null
+    }
+
+    return html`
+      <div class="comment-count">
+        <p>
+          <span style="font-size: 150%; font-weight: bold">&#x1F5E8;</span>
+          ${this.commentCount}
+        </p>
       </div>
     `
   }

@@ -1,4 +1,5 @@
 import {LitElement, css, html} from 'lit'
+import {abbrevNumber} from 'utils'
 import 'components/vidsiftr-search-result'
 
 export default class VidsiftrSearchResults extends LitElement {
@@ -118,9 +119,15 @@ export default class VidsiftrSearchResults extends LitElement {
   }
 
   #itemCommentCount(videoId) {
-    return this.itemCommentCounts
-      ? this.itemCommentCounts[videoId] ?? '...'
-      : '...'
+    if (!this.itemCommentCounts) {
+      return '...'
+    }
+
+    const commentCount = this.itemCommentCounts[videoId]
+
+    return commentCount
+      ? abbrevNumber(commentCount)
+      : null
   }
 
   #renderNoResults(status) {
