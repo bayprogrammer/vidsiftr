@@ -61,7 +61,17 @@ export default class VidsiftrSearchResults extends LitElement {
   constructor() {
     super()
 
+    this.resetStatus()
+  }
+
+  resetStatus() {
+    this.items = null
     this.status = 'Submit a search to get started...'
+  }
+
+  updateStatus(newStatus) {
+    this.items = null
+    this.status = newStatus
   }
 
   render() {
@@ -75,12 +85,14 @@ export default class VidsiftrSearchResults extends LitElement {
     `
   }
 
+  // TODO(zmd): privatize?
   renderItems = (items) => {
     return items.length < 1
       ? this.renderNoResults('No videos found for your keywords.')
       : items.map(this.renderItem)
   }
 
+  // TODO(zmd): privatize?
   renderItem = (item) => {
     const { videoId } = item.id
     const { title, description, thumbnails } = item.snippet
@@ -96,16 +108,19 @@ export default class VidsiftrSearchResults extends LitElement {
     `
   }
 
+  // TODO(zmd): privatize?
   videoUrl = (videoId) => {
     return `https://www.youtube.com/watch?v=${videoId}`
   }
 
+  // TODO(zmd): privatize?
   thumbnailUrl = (thumbnails) => {
     return thumbnails?.high?.url
       ?? thumbnails?.medium?.url
       ?? thumbnails?.default?.url
   }
 
+  // TODO(zmd): privatize?
   renderNoResults = (status) => {
     status ??= this.status
 
