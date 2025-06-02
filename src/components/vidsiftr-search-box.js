@@ -72,14 +72,12 @@ export default class VidsiftrSearchBox extends LitElement {
   }
 
   firstUpdated() {
-    // TODO(zmd): privatize getter
-    this._keywordsInput.focus()
+    this.#keywordsInput.focus()
   }
 
   formSubmitted = (event) => {
     event.preventDefault()
-    // TODO(zmd): privatize getter
-    const keywords = this._keywordsInput.value ?? ''
+    const keywords = this.#keywordsInput.value ?? ''
 
     this.dispatchEvent(new CustomEvent('search-submitted', {
       bubbles: true,
@@ -88,8 +86,7 @@ export default class VidsiftrSearchBox extends LitElement {
     }))
   }
 
-  // TODO(zmd): privatize getter
-  get _keywordsInput() {
+  get #keywordsInput() {
     return this.renderRoot.getElementById('keywords')
   }
 }
