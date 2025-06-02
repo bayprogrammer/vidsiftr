@@ -37,7 +37,9 @@ export default class VidsiftrSearch extends LitElement {
     )
 
     searchResultsEle.updateStatus('Searching...')
-    searchResultsEle.items = await youTube.fetchItems()
+    // TODO(zmd): re-enable getting real items from teh tubez
+    //searchResultsEle.items = await youTube.fetchItems()
+    searchResultsEle.items = this.#ytConfig.searchFixtures[keywords]?.items ?? []
 
     // TODO(zmd): fetch & propagate comment counts
     // searchResultsEle.commentCounts = await youTube.fetchCommentCounts()
