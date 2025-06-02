@@ -78,50 +78,45 @@ export default class VidsiftrSearchResults extends LitElement {
     return html`
       <div id="results">
         ${this.items
-            ? this.renderItems(this.items)
-            : this.renderNoResults()}
+            ? this.#renderItems(this.items)
+            : this.#renderNoResults()}
         <div id="clearfix"></div>
       </div>
     `
   }
 
-  // TODO(zmd): privatize?
-  renderItems = (items) => {
+  #renderItems = (items) => {
     return items.length < 1
-      ? this.renderNoResults('No videos found for your keywords.')
-      : items.map(this.renderItem)
+      ? this.#renderNoResults('No videos found for your keywords.')
+      : items.map(this.#renderItem)
   }
 
-  // TODO(zmd): privatize?
-  renderItem = (item) => {
+  #renderItem = (item) => {
     const { videoId } = item.id
     const { title, description, thumbnails } = item.snippet
 
     return html`
       <vidsiftr-search-result
-        .videoUrl=${this.videoUrl(videoId)}
+        .videoUrl=${this.#videoUrl(videoId)}
         .title=${title}
-        .thumbnailUrl=${this.thumbnailUrl(thumbnails)}
+        .thumbnailUrl=${this.#thumbnailUrl(thumbnails)}
         .commentCount=${"TBD"}
         .description=${description}
       ></vidsiftr-search-result>
     `
   }
 
-  // TODO(zmd): privatize?
-  videoUrl = (videoId) => {
+  #videoUrl(videoId) {
     return `https://www.youtube.com/watch?v=${videoId}`
   }
 
-  // TODO(zmd): privatize?
-  thumbnailUrl = (thumbnails) => {
+  #thumbnailUrl(thumbnails) {
     return thumbnails?.high?.url
       ?? thumbnails?.medium?.url
       ?? thumbnails?.default?.url
   }
 
-  // TODO(zmd): privatize?
-  renderNoResults = (status) => {
+  #renderNoResults(status) {
     status ??= this.status
 
     return html`
