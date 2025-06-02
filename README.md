@@ -27,7 +27,7 @@ heart's content (or until you run out of [YouTube Data API v3][1] [quota][2]
 allowance).
 
 Speaking of API's, you do need to edit the `config.json` file you copied before
-you can _really_ do much of anything. Feel free to use another editor of
+you can _really_ do much of anything. Feel free to use another editor if
 `vi(1)` isn't your cup of tea. `emacs(1)` was used to write this application.
 
 [1]: https://developers.google.com/youtube/v3/getting-started
