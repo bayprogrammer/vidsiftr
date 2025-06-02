@@ -24,7 +24,7 @@ $ npm run serve
 
 Then you can access the app at http://127.0.0.1:8080/ and search to your
 heart's content (or until you run out of [YouTube Data API v3][1] [quota][2]
-allownance).
+allowance).
 
 Speaking of API's, you do need to edit the `config.json` file you copied before
 you can _really_ do much of anything. Feel free to use another editor of
