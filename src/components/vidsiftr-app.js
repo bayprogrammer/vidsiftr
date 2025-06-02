@@ -32,10 +32,21 @@ export default class VidsiftrApp extends LitElement {
       clear: both;
       font-family: sans;
       font-size: 8pt;
-      background: #ec9175;
-      color: #6a1d0a;
       padding: 0.5em;
       text-align: center;
+      background: #ffc0ac;
+      text-decoration: none;
+      text-shadow: 0px 1px #f4dfd8;
+      color: #844637;
+    }
+
+    a {
+      color: #844637;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   `
 
@@ -50,7 +61,7 @@ export default class VidsiftrApp extends LitElement {
       </main>
 
       <footer>
-        <p>Copyright © 2025 Zeb DeOs</p>
+        <p>♥ Made with love by <a href="mailto:zebdeos@bayprogrammer.com">Zeb DeOs</a>.</p>
       </footer>
     `
   }
