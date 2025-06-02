@@ -1,5 +1,5 @@
 import {LitElement, html, nothing} from 'lit'
-import {YouTubeSearcher} from 'utils'
+import {YouTubeSearcher, abbrevNumber} from 'utils'
 import config from 'config' with { type: 'json' }
 import 'components/vidsiftr-search-box'
 import 'components/vidsiftr-search-results'
@@ -39,10 +39,19 @@ export default class VidsiftrSearch extends LitElement {
     searchResultsEle.updateStatus('Searching...')
     // TODO(zmd): re-enable getting real items from teh tubez
     //searchResultsEle.items = await youTube.fetchItems()
-    searchResultsEle.items = this.#ytConfig.searchFixtures[keywords]?.items ?? []
+    const items = this.#ytConfig.searchFixtures[keywords]?.items ?? []
+    searchResultsEle.items = items
 
     // TODO(zmd): fetch & propagate comment counts
     // searchResultsEle.commentCounts = await youTube.fetchCommentCounts()
+
+    // TODO(zmd): remove fake comment count'n
+    const commentCounts = Object.fromEntries(items.map(item => [
+      item.id.videoId,
+      abbrevNumber(Math.floor(Math.random() * 10_000_000))
+    ]))
+
+    searchResultsEle.itemCommentCounts = commentCounts
   }
 
   get #ytConfig() {

@@ -4,6 +4,7 @@ import 'components/vidsiftr-search-result'
 export default class VidsiftrSearchResults extends LitElement {
   static properties = {
     items: { type: 'Array' },
+    itemCommentCounts: { type: 'Array' },
     status: { type: 'String' },
   }
 
@@ -100,7 +101,7 @@ export default class VidsiftrSearchResults extends LitElement {
         .videoUrl=${this.#videoUrl(videoId)}
         .title=${title}
         .thumbnailUrl=${this.#thumbnailUrl(thumbnails)}
-        .commentCount=${"TBD"}
+        .commentCount=${this.#itemCommentCount(videoId)}
         .description=${description}
       ></vidsiftr-search-result>
     `
@@ -114,6 +115,12 @@ export default class VidsiftrSearchResults extends LitElement {
     return thumbnails?.high?.url
       ?? thumbnails?.medium?.url
       ?? thumbnails?.default?.url
+  }
+
+  #itemCommentCount(videoId) {
+    return this.itemCommentCounts
+      ? this.itemCommentCounts[videoId] ?? '...'
+      : '...'
   }
 
   #renderNoResults(status) {
