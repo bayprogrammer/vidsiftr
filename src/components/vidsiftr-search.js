@@ -46,21 +46,17 @@ export default class VidsiftrSearch extends LitElement {
 
     const youTube = new YouTubeSearcher(
       keywords,
+      this._searchOrder,
       8,
       this.#ytConfig.key,
       this.#ytConfig.endpoint,
     )
 
     searchResultsEle.updateStatus('Searching...')
-    //const items = await youTube.fetchItems()
-    const items = this.#ytConfig.searchFixtures[keywords]?.items ?? []
+    const items = await youTube.fetchItems()
     searchResultsEle.items = items
 
-    //const commentCounts = await youTube.fetchCommentCounts()
-    const commentCounts = Object.fromEntries(items.map(item => [
-      item.id.videoId,
-      Math.floor(Math.random() * 1200)
-    ]))
+    const commentCounts = await youTube.fetchCommentCounts()
     searchResultsEle.itemCommentCounts = commentCounts
   }
 

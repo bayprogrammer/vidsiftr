@@ -1,5 +1,6 @@
 export default class YouTubeSearcher {
   #keywords
+  #order
   #maxResults
   #apiKey
   #endpoint
@@ -7,8 +8,9 @@ export default class YouTubeSearcher {
   #items = null
   #videoIds = null
 
-  constructor(keywords, maxResults, apiKey, endpoint) {
+  constructor(keywords, order, maxResults, apiKey, endpoint) {
     this.#keywords = keywords
+    this.#order = order
     this.#maxResults = maxResults
     this.#apiKey = apiKey
     this.#endpoint = endpoint
@@ -73,7 +75,7 @@ export default class YouTubeSearcher {
     return new URLSearchParams({
       part: 'snippet',
       maxResults: this.#maxResults,
-      order: 'relevance',
+      order: this.#order,
       type: 'video',
       fields: 'items/id(videoId),items/snippet(title,description,thumbnails)',
       q: this.#keywords,
