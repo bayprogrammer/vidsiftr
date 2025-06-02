@@ -47,7 +47,7 @@ export default class VidsiftrSearch extends LitElement {
     const youTube = new YouTubeSearcher(
       keywords,
       this._searchOrder,
-      8,
+      50,
       this.#ytConfig.key,
       this.#ytConfig.endpoint,
     )
