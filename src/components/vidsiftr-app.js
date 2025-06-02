@@ -61,7 +61,7 @@ export default class VidsiftrApp extends LitElement {
       </main>
 
       <footer>
-        <p>♥ Made with love by <a href="mailto:zebdeos@bayprogrammer.com">Zeb DeOs</a>.</p>
+        <p>&#x2665; Made with love by <a href="mailto:zebdeos@bayprogrammer.com">Zeb DeOs</a>.</p>
       </footer>
     `
   }
