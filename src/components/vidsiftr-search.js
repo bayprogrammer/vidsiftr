@@ -6,6 +6,9 @@ import 'components/vidsiftr-search-order'
 import 'components/vidsiftr-search-results'
 
 export default class VidsiftrSearch extends LitElement {
+  #validSearchOrders = new Set(['date', 'rating', 'relevance'])
+  #defaultSearchOrder = 'date'
+
   static properties = {
     _searchOrder: { state: true }
   }
@@ -13,7 +16,7 @@ export default class VidsiftrSearch extends LitElement {
   constructor() {
     super()
 
-    this._searchOrder = 'date'
+    this._searchOrder = this.#defaultSearchOrder
 
     this.addEventListener('search-submitted', this.handleSearchSubmitted)
     this.addEventListener('search-order-updated', this.handleSearchOrderUpdated)
@@ -64,7 +67,11 @@ export default class VidsiftrSearch extends LitElement {
   handleSearchOrderUpdated = (event) => {
     const searchOrder = event.detail.searchOrder
 
-    console.log('Search order request of "' + searchOrder + '" received!')
+    if (this.#validSearchOrders.has(searchOrder)) {
+      this._searchOrder = searchOrder
+    } else {
+      this._searchOrder = this.#defaultSearchOrder
+    }
   }
 
   get #ytConfig() {
