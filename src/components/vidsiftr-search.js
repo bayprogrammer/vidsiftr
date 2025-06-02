@@ -38,19 +38,16 @@ export default class VidsiftrSearch extends LitElement {
 
     searchResultsEle.updateStatus('Searching...')
     // TODO(zmd): re-enable getting real items from teh tubez
-    //searchResultsEle.items = await youTube.fetchItems()
+    //const items = await youTube.fetchItems()
     const items = this.#ytConfig.searchFixtures[keywords]?.items ?? []
     searchResultsEle.items = items
 
-    // TODO(zmd): fetch & propagate comment counts
-    // searchResultsEle.commentCounts = await youTube.fetchCommentCounts()
-
-    // TODO(zmd): remove fake comment count'n
+    // TODO(zmd): get comment counts for the real
+    //const commentCounts = await youTube.fetchCommentCounts()
     const commentCounts = Object.fromEntries(items.map(item => [
       item.id.videoId,
       abbrevNumber(Math.floor(Math.random() * 10_000_000))
     ]))
-
     searchResultsEle.itemCommentCounts = commentCounts
   }
 

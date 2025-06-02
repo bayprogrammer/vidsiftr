@@ -1,11 +1,15 @@
 export default class YouTubeSearcher {
+  #keywords
+  #maxResults
+  #apiKey
+  #endpoint
   #lastResponseBody = null
 
   constructor(keywords, maxResults, apiKey, endpoint) {
-    this.keywords = keywords
-    this.maxResults = maxResults
-    this.apiKey = apiKey
-    this.endpoint = endpoint
+    this.#keywords = keywords
+    this.#maxResults = maxResults
+    this.#apiKey = apiKey
+    this.#endpoint = endpoint
   }
 
   async fetchItems() {
@@ -29,23 +33,35 @@ export default class YouTubeSearcher {
     }
   }
 
-  //async fetchCommentCounts() {
-  //  // TODO(zmd): implement me
-  //}
+  async fetchCommentCounts() {
+    // TODO(zmd): implement me
+  }
+
+  async fetchCommentCount(videoId) {
+    // TODO(zmd): implement me
+  }
 
   get #fetchItemsUrl() {
-    return `${this.endpoint}?${this.#fetchItemsParams}`
+    return `${this.#endpoint}?${this.#fetchItemsParams}`
   }
 
   get #fetchItemsParams() {
     return new URLSearchParams({
       part: 'snippet',
-      maxResults: this.maxResults,
+      maxResults: this.#maxResults,
       order: 'relevance',
       type: 'video',
       fields: 'etag,nextPageToken,items/id(videoId),items/snippet(publishedAt,title,description,thumbnails)',
-      q: this.keywords,
-      key: this.apiKey
+      q: this.#keywords,
+      key: this.#apiKey
     }).toString()
+  }
+
+  get #fetchCommentCountUrl() {
+    // TODO(zmd): implement me
+  }
+
+  get #fetchCommentCountParams() {
+    // TODO(zmd): implement me
   }
 }
