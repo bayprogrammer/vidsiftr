@@ -16,7 +16,7 @@ export default class VidsiftrSearch extends LitElement {
     this._searchOrder = 'date'
 
     this.addEventListener('search-submitted', this.handleSearchSubmitted)
-    // TODO(zmd): this.addEventListener('search-order-updated', this.handleSearchOrderUpdated)
+    this.addEventListener('search-order-updated', this.handleSearchOrderUpdated)
   }
 
   render() {
@@ -61,7 +61,11 @@ export default class VidsiftrSearch extends LitElement {
     searchResultsEle.itemCommentCounts = commentCounts
   }
 
-  // TODO(zmd): handleSearchOrderUpdated
+  handleSearchOrderUpdated = (event) => {
+    const searchOrder = event.detail.searchOrder
+
+    console.log('Search order request of "' + searchOrder + '" received!')
+  }
 
   get #ytConfig() {
     return config.YouTubeDataApi

@@ -42,24 +42,48 @@ export default class VidsiftrSearchOrder extends LitElement {
       <ol>
         <li>
           <a id="order-by-date"
+             value="date"
              class="${this.searchOrder == 'date' ? 'active' : ''}"
-             href="#">search by date</a>
+             href="#"
+             @click="${this.searchOrderUpdated}"
+          >
+            search by date
+          </a>
         </li>
         <li>
           <a id="order-by-rating"
+             value="rating"
              class="${this.searchOrder == 'rating' ? 'active' : ''}"
-             href="#">search by rating</a>
+             href="#"
+             @click="${this.searchOrderUpdated}"
+          >
+            search by rating
+          </a>
         </li>
         <li>
           <a id="order-by-relevance"
+             value="relevance"
              class="${this.searchOrder == 'relevance' ? 'active' : ''}"
-             href="#">search by relevance</a>
+             href="#"
+             @click="${this.searchOrderUpdated}"
+          >
+            search by relevance
+          </a>
         </li>
       </ol>
     `
   }
 
-  // TODO(zmd): searchOrderUpdated = (event) => { /* ... */ }
+  searchOrderUpdated = (event) => {
+    event.preventDefault()
+    const searchOrder = event.target.getAttribute('value')
+
+    this.dispatchEvent(new CustomEvent('search-order-updated', {
+      bubbles: true,
+      composed: true,
+      detail: { searchOrder },
+    }))
+  }
 }
 
 customElements.define('vidsiftr-search-order', VidsiftrSearchOrder)
